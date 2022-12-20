@@ -7,6 +7,7 @@ from .enac import encode_enac, ENAC
 from .kmer import encode_kmer, Kmer, KmerText
 from .knc import encode_knc, KNC
 from .mcn import encode_mcn, MCN
+from .mwp_text import encode_mwp_text, MWPText
 from .nac import encode_nac, NAC
 from .ncp import encode_ncp, NCP
 from .nd import encode_nd, ND

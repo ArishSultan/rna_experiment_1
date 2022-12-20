@@ -61,6 +61,7 @@ def main():
     _transform_and_save(_FILES, DataTransformer(steps=[
         steps.LabelRename(),
         steps.EncodeSequence(encodings=[
+            encodings.MWPText(),
             encodings.ANF(),
             encodings.Binary(),
             encodings.CKSNAP(gap=1, kind='RNA'),
