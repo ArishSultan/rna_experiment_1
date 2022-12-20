@@ -27,7 +27,9 @@ class Splitter(DataTransformerStep):
 
                 x_train, x_test, y_train, y_test = train_test_split(
                     value.drop('label', axis=1), value['label'],
-                    test_size=.2, train_size=.8
+                    random_state=0,
+                    test_size=.2, train_size=.8,
+                    stratify=value['label']
                 )
                 new_result.set(
                     f'{key}>test',
@@ -36,7 +38,9 @@ class Splitter(DataTransformerStep):
 
                 x_train, x_valid, y_train, y_valid = train_test_split(
                     x_train, y_train,
-                    test_size=.1, train_size=.9
+                    random_state=0,
+                    test_size=.1, train_size=.9,
+                    stratify=y_train
                 )
 
                 new_result.set(
@@ -47,7 +51,5 @@ class Splitter(DataTransformerStep):
                     f'{key}>valid',
                     concat([x_valid, y_valid], axis=1)
                 )
-
-
 
         return new_result
