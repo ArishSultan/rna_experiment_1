@@ -133,4 +133,4 @@ class KmerText(Encoding):
         return f'kmer_text{"_upto_" if self._upto else ""}_{self._k}'
 
     def encode(self, sequence: str, label: bool = False):
-        return generate_kmers(sequence, self._k, self._upto)
+        return [' '.join(generate_kmers(sequence, self._k, self._upto)).replace('U', 'T')]
